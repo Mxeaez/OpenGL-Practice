@@ -2,6 +2,7 @@
 #include <string>
 #include <GL\glew.h>
 #include <glm\glm.hpp>
+#include "Camera.h"
 
 class Shader
 {
@@ -10,7 +11,7 @@ public:
 	Shader(const std::string& vertexPath, const std::string& fragmentPath);
 
 	void LoadTransformationMatrix(const glm::mat4& matrix);
-	void LoadViewMatrix();
+	void LoadViewMatrix(const Camera& camera);
 
 	int GetUniformLocation(const std::string& name);
 

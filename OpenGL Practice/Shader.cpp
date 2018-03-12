@@ -4,6 +4,7 @@
 #include <glm\gtc\type_ptr.hpp>
 #include <glm\gtc\matrix_transform.hpp>
 #include "WindowManager.h"
+#include "Math.h"
 
 Shader::Shader(const std::string & vertexPath, const std::string & fragmentPath)
 {
@@ -27,8 +28,10 @@ void Shader::LoadTransformationMatrix(const glm::mat4 & matrix)
 	SetMat4("transformationMatrix", matrix);
 }
 
-void Shader::LoadViewMatrix()
+void Shader::LoadViewMatrix(const Camera& camera)
 {
+	glm::mat4 viewMatrix = Math::CreateViewMatrix(camera);
+	SetMat4("viewMatrix", viewMatrix);
 }
 
 int Shader::GetUniformLocation(const std::string & name)
