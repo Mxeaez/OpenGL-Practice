@@ -1,24 +1,10 @@
 #pragma once
 #include <string>
-#include <fstream>
-#include <assert.h>
-#include <sstream>
+#include <vector>
 
 namespace Utility
 {
-	std::string GetFileSource(const std::string& filePath)
-	{
-		std::ifstream inFile(filePath);
+	std::string GetFileSource(const std::string& filePath);
 
-		assert(inFile);
-
-		std::stringstream stringStream;
-		std::string fileContents;
-
-		stringStream << inFile.rdbuf();
-		fileContents = stringStream.str();
-
-		return fileContents;
-	}
-
+	std::vector<std::string> Split(std::string string, const std::string& delimiter);
 }
