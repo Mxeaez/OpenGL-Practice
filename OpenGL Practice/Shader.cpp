@@ -34,11 +34,10 @@ void Shader::LoadViewMatrix(const Camera& camera)
 	SetMat4("viewMatrix", viewMatrix);
 }
 
-int Shader::GetUniformLocation(const std::string & name)
+void Shader::LoadLight(const Light & light)
 {
-	int location = glGetUniformLocation(programID, name.c_str());
-
-	return location;
+	SetVec3("lightPosition", light.GetPosition());
+	SetVec3("lightColour", light.GetColour());
 }
 
 void Shader::SetFloat(const std::string & name, float value)
@@ -120,4 +119,12 @@ void Shader::LoadProjectionMatrix()
 {
 	glm::mat4 matrix = glm::perspective(glm::radians(45.0f), (float)WindowManager::WIDTH / (float)WindowManager::HEIGHT, 0.1f, 1000.0f);
 	SetMat4("projectionMatrix", matrix);
+}
+
+
+int Shader::GetUniformLocation(const std::string & name)
+{
+	int location = glGetUniformLocation(programID, name.c_str());
+
+	return location;
 }

@@ -69,9 +69,10 @@ Model ObjLoader::LoadObjToModel(std::string filePath, Loader loader)
 			HandleVertices(vertex2, textureCoords, newTextureCoords, normals, newNormals, indices);
 			HandleVertices(vertex3, textureCoords, newTextureCoords, normals, newNormals, indices);
 		}
+		std::cout << "Working." << std::endl;
 	}
 
-	Model model = loader.LoadToVAO(vertices, newTextureCoords, indices);
+	Model model = loader.LoadToVAO(vertices, newTextureCoords, newNormals, indices);
 
 	return model;
 }
@@ -79,7 +80,7 @@ Model ObjLoader::LoadObjToModel(std::string filePath, Loader loader)
 void ObjLoader::HandleVertices(const std::vector<std::string>& vertex, const std::vector<glm::vec2>& textureCoords, std::vector<float>& newTextureCoords,
 	const std::vector<glm::vec3>& normals, std::vector<float>& newNormals, std::vector<unsigned int>& indices)
 {
-	int vertexPointer = std::stoi(vertex[0]) - 1;
+	unsigned int vertexPointer = std::stoi(vertex[0]) - 1;
 	indices.push_back(vertexPointer);
 
 	newTextureCoords[vertexPointer * 2] = textureCoords[std::stoi(vertex[1]) - 1].x;

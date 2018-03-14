@@ -4,12 +4,13 @@
 #define STB_IMAGE_IMPLEMENTATION
 #include "stb_image.h"
 
-Model Loader::LoadToVAO(const std::vector<float>& vertexData, const std::vector<float>& textureCoords, const std::vector<unsigned int> indices)
+Model Loader::LoadToVAO(const std::vector<float>& vertexData, const std::vector<float>& textureCoords, const std::vector<float>& normals, const std::vector<unsigned int>& indices)
 {
 	unsigned int vaoID = CreateVAO(vertexData);
 	BindEBO(indices);
 	StoreDataInAttributeList(0, 3, vertexData);
 	StoreDataInAttributeList(1, 2, textureCoords);
+	StoreDataInAttributeList(2, 3, normals);
 
 	return Model(vaoID, indices.size());
 }
@@ -38,7 +39,7 @@ unsigned int Loader::LoadTexture(const std::string& imageName) const
 	return texture;
 }
 
-void Loader::BindEBO(const std::vector<unsigned int> indices)
+void Loader::BindEBO(const std::vector<unsigned int>& indices)
 {
 	unsigned int eboID;
 	glGenBuffers(1, &eboID);

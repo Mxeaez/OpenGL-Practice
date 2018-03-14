@@ -3,6 +3,7 @@
 #include <GL\glew.h>
 #include <glm\glm.hpp>
 #include "Camera.h"
+#include "Light.h"
 
 class Shader
 {
@@ -12,8 +13,7 @@ public:
 
 	void LoadTransformationMatrix(const glm::mat4& matrix);
 	void LoadViewMatrix(const Camera& camera);
-
-	int GetUniformLocation(const std::string& name);
+	void LoadLight(const Light& light);
 
 	void SetFloat(const std::string& name, float value);
 	void SetVec3(const std::string& name, const glm::vec3& value);
@@ -27,6 +27,7 @@ private:
 	unsigned int CompileShader(const std::string& shaderSource, const GLenum& shaderType);
 
 	void LoadProjectionMatrix();
+	int GetUniformLocation(const std::string& name);
 
 private:
 

@@ -59,11 +59,14 @@
     <ClCompile Include="Camera.cpp">
       <Filter>Entities</Filter>
     </ClCompile>
-    <ClCompile Include="ObjLoader.cpp">
-      <Filter>Models</Filter>
-    </ClCompile>
     <ClCompile Include="Utility.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Light.cpp">
+      <Filter>Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjLoader.cpp">
+      <Filter>Render</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -106,8 +109,11 @@
     <ClInclude Include="Camera.h">
       <Filter>Entities</Filter>
     </ClInclude>
+    <ClInclude Include="Light.h">
+      <Filter>Entities</Filter>
+    </ClInclude>
     <ClInclude Include="ObjLoader.h">
-      <Filter>Models</Filter>
+      <Filter>Render</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
