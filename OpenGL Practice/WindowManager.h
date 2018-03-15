@@ -10,7 +10,6 @@ public:
 	WindowManager(const WindowManager& rhs) = delete;
 	WindowManager& operator=(const WindowManager& rhs) = delete;
 
-	void Clear();
 	bool IsOpen();
 	void Close();
 	void Display();

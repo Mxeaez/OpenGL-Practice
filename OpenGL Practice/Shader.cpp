@@ -17,10 +17,6 @@ Shader::Shader(const std::string & vertexPath, const std::string & fragmentPath)
 
 	LinkProgram(vertexID, fragmentID);
 
-	Bind();
-	LoadProjectionMatrix();
-	glUseProgram(0);
-
 }
 
 void Shader::LoadTransformationMatrix(const glm::mat4 & matrix)
@@ -32,6 +28,12 @@ void Shader::LoadViewMatrix(const Camera& camera)
 {
 	glm::mat4 viewMatrix = Math::CreateViewMatrix(camera);
 	SetMat4("viewMatrix", viewMatrix);
+}
+
+void Shader::LoadProjectionMatrix()
+{
+	glm::mat4 matrix = glm::perspective(glm::radians(45.0f), (float)WindowManager::WIDTH / (float)WindowManager::HEIGHT, 0.1f, 1000.0f);
+	SetMat4("projectionMatrix", matrix);
 }
 
 void Shader::LoadLight(const Light & light)
@@ -64,9 +66,14 @@ void Shader::SetMat4(const std::string & name, const glm::mat4 & value)
 	glUniformMatrix4fv(location, 1, GL_FALSE, glm::value_ptr(value));
 }
 
-void Shader::Bind()
+void Shader::Start()
 {
 	glUseProgram(programID);
+}
+
+void Shader::Stop()
+{
+	glUseProgram(0);
 }
 
 void Shader::LinkProgram(unsigned int vertexID, unsigned int fragmentID)
@@ -120,13 +127,6 @@ unsigned int Shader::CompileShader(const std::string & shaderSource, const GLenu
 	return shaderID;
 
 }
-
-void Shader::LoadProjectionMatrix()
-{
-	glm::mat4 matrix = glm::perspective(glm::radians(45.0f), (float)WindowManager::WIDTH / (float)WindowManager::HEIGHT, 0.1f, 1000.0f);
-	SetMat4("projectionMatrix", matrix);
-}
-
 
 int Shader::GetUniformLocation(const std::string & name)
 {

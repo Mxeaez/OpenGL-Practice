@@ -12,7 +12,5 @@ public:
 	void RunMainGameLoop();
 
 private:
-	Loader loader;
-	Renderer renderer;
 	WindowManager window;
 };

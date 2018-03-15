@@ -2,6 +2,16 @@
 #include <GL\glew.h>
 #include "Math.h"
 
+Renderer::Renderer(Shader shader)
+{
+	glEnable(GL_DEPTH_TEST);
+	glEnable(GL_CULL_FACE);
+	glCullFace(GL_BACK);
+	shader.Start();
+	shader.LoadProjectionMatrix();
+	shader.Stop();
+}
+
 void Renderer::Render(Entity entity, Shader shader)
 {
 	TexturedModel texturedModel = entity.GetTexturedModel();
@@ -22,4 +32,10 @@ void Renderer::Render(Entity entity, Shader shader)
 	glDisableVertexAttribArray(1);
 	glDisableVertexAttribArray(2);
 
+}
+
+void Renderer::Prepare()
+{
+	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 }

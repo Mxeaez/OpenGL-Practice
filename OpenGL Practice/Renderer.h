@@ -6,6 +6,9 @@ class Renderer
 {
 public:
 
+	Renderer(Shader shader);
+
 	void Render(Entity entity, Shader shader);
+	void Prepare();
 
 };
