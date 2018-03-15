@@ -12,6 +12,7 @@ uniform vec3 lightPosition;
 out vec2 pass_Texture;
 out vec3 surfaceNormal;
 out vec3 vectorToLight;
+out vec3 vectorToCamera;
 
 void main()
 {
@@ -22,5 +23,7 @@ void main()
 
 	surfaceNormal = (transformationMatrix * vec4(normal, 0.0f)).xyz;
 	vectorToLight = lightPosition - worldPosition.xyz;
+
+	vectorToCamera = (inverse(viewMatrix) * vec4(0.0f, 0.0f, 0.0f, 1.0f)).xyz;
 
 }

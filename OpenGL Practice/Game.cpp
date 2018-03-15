@@ -15,11 +15,11 @@ void Game::RunMainGameLoop()
 	shader.Bind();
 
 	ObjLoader objLoader;
-	Model model = objLoader.LoadObjToModel("res/stall.obj", loader);
-	ModelTexture texture = loader.LoadTexture("res/stallTexture.png");
+	Model model = objLoader.LoadObjToModel("res/dragon.obj", loader);
+	ModelTexture texture = loader.LoadTexture("res/default.png");
 	TexturedModel texturedModel(model, texture);
 
-	Entity entity(texturedModel, glm::vec3(0.0f, 0.0f, -25.0), 0, 0, 0, 1);
+	Entity entity(texturedModel, glm::vec3(0.0f, -5.0f, -25.0), 0, 0, 0, 1);
 
 	Camera camera;
 
@@ -32,7 +32,7 @@ void Game::RunMainGameLoop()
 
 		camera.Move();
 
-		entity.IncreaseRotation(0, 0.002f, 0);
+		//entity.IncreaseRotation(0, 0.02f, 0);
 
 		shader.LoadLight(light);
 		shader.LoadViewMatrix(camera);

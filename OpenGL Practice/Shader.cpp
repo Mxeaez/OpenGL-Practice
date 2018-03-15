@@ -40,6 +40,12 @@ void Shader::LoadLight(const Light & light)
 	SetVec3("lightColour", light.GetColour());
 }
 
+void Shader::LoadSpecularVariables(float reflectivity, float damper)
+{
+	SetFloat("reflectivity", reflectivity);
+	SetFloat("damper", damper);
+}
+
 void Shader::SetFloat(const std::string & name, float value)
 {
 	int location = GetUniformLocation(name);

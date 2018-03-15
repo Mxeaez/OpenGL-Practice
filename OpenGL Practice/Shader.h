@@ -14,6 +14,7 @@ public:
 	void LoadTransformationMatrix(const glm::mat4& matrix);
 	void LoadViewMatrix(const Camera& camera);
 	void LoadLight(const Light& light);
+	void LoadSpecularVariables(float reflectivity, float damper);
 
 	void SetFloat(const std::string& name, float value);
 	void SetVec3(const std::string& name, const glm::vec3& value);

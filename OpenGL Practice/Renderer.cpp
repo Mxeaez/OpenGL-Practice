@@ -4,12 +4,15 @@
 
 void Renderer::Render(Entity entity, Shader shader)
 {
-	Model model = entity.GetTexturedModel().GetModel();
+	TexturedModel texturedModel = entity.GetTexturedModel();
+	Model model = texturedModel.GetModel();
+	ModelTexture texture = texturedModel.GetTexture();
 
 	glBindVertexArray(model.GetVaoID());
 
 	glm::mat4 transformationMatrix = Math::CreateTransformationMatrix(entity.GetPosition(), entity.GetRotX(), entity.GetRotY(), entity.GetRotZ(), entity.GetScale());
 	shader.LoadTransformationMatrix(transformationMatrix);
+	shader.LoadSpecularVariables(texture.GetReflectivity(), texture.GetDamper());
 
 	glEnableVertexAttribArray(0);
 	glEnableVertexAttribArray(1);
