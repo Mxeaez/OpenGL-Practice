@@ -70,12 +70,12 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>D:\Libraries\Documents\Brodys Documents\OpenGL Libraries\glm;D:\Libraries\Documents\Brodys Documents\OpenGL Libraries\glew\include;D:\Libraries\Documents\Brodys Documents\OpenGL Libraries\SFML\include;$(IncludePath)</IncludePath>
-    <LibraryPath>D:\Libraries\Documents\Brodys Documents\OpenGL Libraries\glew\lib\Release\Win32;D:\Libraries\Documents\Brodys Documents\OpenGL Libraries\SFML\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>D:\Program Files\EngineLibraries\glm;D:\Program Files\EngineLibraries\glew-2.1.0\include;D:\Program Files\EngineLibraries\SFML-2.4.2\include;$(IncludePath)</IncludePath>
+    <LibraryPath>D:\Program Files\EngineLibraries\glew-2.1.0\lib\Release\Win32;D:\Program Files\EngineLibraries\SFML-2.4.2\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IncludePath>D:\Libraries\Documents\Brodys Documents\OpenGL Libraries\glm;D:\Libraries\Documents\Brodys Documents\OpenGL Libraries\glew\include;D:\Libraries\Documents\Brodys Documents\OpenGL Libraries\SFML\include;$(IncludePath)</IncludePath>
-    <LibraryPath>D:\Libraries\Documents\Brodys Documents\OpenGL Libraries\glew\lib\Release\Win32;D:\Libraries\Documents\Brodys Documents\OpenGL Libraries\SFML\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>D:\Program Files\EngineLibraries\glm;D:\Program Files\EngineLibraries\glew-2.1.0\include;D:\Program Files\EngineLibraries\SFML-2.4.2\include;$(IncludePath)</IncludePath>
+    <LibraryPath>D:\Program Files\EngineLibraries\glew-2.1.0\lib\Release\Win32;D:\Program Files\EngineLibraries\SFML-2.4.2\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>

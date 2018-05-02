@@ -1,6 +1,6 @@
 #include "Game.h"
 #include "Shader.h"
-#include "Entity.h";
+#include "Entity.h"
 #include "Camera.h"
 #include "ObjLoader.h"
 #include "Light.h"
